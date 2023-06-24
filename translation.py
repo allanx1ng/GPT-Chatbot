@@ -19,8 +19,6 @@ def translate_and_play(text):
     response_jp = translator.translate(text, src='en', dest='ja')
     print(response_jp.text)
 
-    
-
     # Call Voicevox to generate audio
     params_encoded = urllib.parse.urlencode({'text': response_jp.text[0:], 'speaker': 20})
     request = requests.post(f'http://127.0.0.1:50021/audio_query?{params_encoded}')
